@@ -1,19 +1,11 @@
-import React, { useEffect } from 'react';
 import './App.css';
-import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
-import { fetchAll as fetchTodos } from "./actions/todo_items";
-import { fetchAll as fetchBuckets } from "./actions/bucket";
+import Login from './components/Login';
+import UserList from './components/UserList';
+import React from 'react';
+import 'antd/dist/antd.css';
 
 function App() {
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchTodos());
-    dispatch(fetchBuckets());
-  }, []);
 
   return (
     <Router>
@@ -21,9 +13,10 @@ function App() {
         <div className="container">
           <Route exact path="/" render={() => (
             <React.Fragment>
-              <Dashboard />
+              <Login />
             </React.Fragment>
           )} />
+          <Route path="/userList" component={UserList} />
         </div>
       </div>
     </Router>

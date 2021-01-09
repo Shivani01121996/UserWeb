@@ -1,10 +1,8 @@
-import todoReducer from './todo';
-import bucketsReducer from './bucket';
+import userReducer from './user.js';
 import { combineReducers } from 'redux';
 
 const allReducers = combineReducers({
-    todos: todoReducer,
-    buckets: bucketsReducer
+    users: userReducer
 });
 
 export default allReducers; 
